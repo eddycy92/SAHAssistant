@@ -1,0 +1,43 @@
+http:
+  routers:
+    proxmox:
+      entryPoints:
+        - "https"
+      rule: "Host(`proxmox.example.com`)"
+      middlewares:
+        - authelia
+        - default-headers
+      tls: 
+        certResolver: "letsencrypt"
+        domains:
+          - main: "proxmox.solutioneer.app"
+            sans:
+              - "*.proxmox.solutioneer.app"
+      service: proxmox
+  services:
+    proxmox:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.68.124:8006"
+        passHostHeader: true
+
+  middlewares:
+    https-redirect:
+      redirectScheme:
+        scheme: https
+    authelia:
+      forwardAuth:
+        address: "http://authelia:9091/api/verify?rd=https://auth.solutioneer.app"
+    default-headers:
+      headers:
+        frameDeny: true
+        sslRedirect: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https

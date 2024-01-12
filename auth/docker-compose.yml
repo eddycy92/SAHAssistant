@@ -1,0 +1,94 @@
+---
+version: "3.8"
+
+networks:
+  net:
+    name: net
+    driver: bridge
+    external: true
+services:
+  authelia:
+    image: authelia/authelia
+    container_name: authelia
+    volumes:
+      - /home/auth/authelia:/config 
+      - /home/auth/authelia/users_database.yml:/config/users_database.yml
+      - /home/auth/authelia/configuration.yml:/config/configuration.yml
+      - /home/auth/authelia/certificates:/certificates
+    networks:
+      - net 
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.authelia.rule=Host(`auth.solutioneer.app`)"
+      - "traefik.http.routers.authelia.entrypoints=http"
+      - "traefik.http.routers.authelia.tls.=true" #certresolver=letsencrypt"
+      - "traefik.http.middlewares.authelia.forwardauth.address=https://authelia:9091/api/verify?rd=https%3A%2F%2Fauth.solutioneer.app%2F" 
+      - "traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true"
+      
+    expose:
+      - 9091
+    restart: unless-stopped
+    healthcheck:
+      disable: true
+    environment:
+      TZ: "America/New_York"
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    volumes:
+      - /home/auth/redis:/data
+    networks:
+      - net 
+    expose:
+      - 6379
+    restart: unless-stopped
+    environment:
+      - TZ=America/New_York
+
+  traefik:
+    image: traefik:v2.10.7
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - authelia
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/auth/traefik:/config
+      - /home/auth/traefik/traefik.log:/config/traefik.log
+      - /home/auth/traefik/acme.json:/config/acme.json
+    networks:
+      - net 
+    environment:
+      TZ: "America/New_York"
+    labels:
+      - 'traefik.enable=true'
+    ports:
+      - 80:80
+      - 443:443
+    command:
+      - '--log.level=DEBUG'
+      - '--log.filepath=/config/traefik.log'
+      - '--providers.docker=true'
+      - '--providers.docker.exposedByDefault=false'
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=4906131Root
+      - MYSQL_DATABASE=authelia_db
+      - MYSQL_USER=authelia_db
+      - MYSQL_PASSWORD=4906131
+      - TZ=America/New_York
+    volumes:
+      - /home/auth/mysql/data:/var/lib/mysql
+    networks:
+      - net   
+    restart: unless-stopped
+  #todo:  phpmyadmin:
+...
+

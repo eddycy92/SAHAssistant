@@ -1,0 +1,35 @@
+---
+###############################################################
+#                         Users Database                      #
+###############################################################
+
+# This file can be used if you do not have an LDAP set up.
+
+# List of users
+users:
+  authelia:
+    disabled: false
+    displayname: "Authelia User"
+    # Password is authelia
+    password: "$6$rounds=50000$BpLnfgDsc2WD8F2q$Zis.ixdg9s/UOJYrs56b5QEZFiZECu0qZVNsIYxBaNJ7ucIL.nlxVCT5tqh8KHG8X4tlwCFm5r6NTOZZ5qRFN/"  # yamllint disable-line rule:line-length
+    email: authelia@authelia.com
+    groups:
+      - admins
+      - dev
+
+  solutioneer_admin:
+    disabled: false
+    displayname: eddy_admin
+    password: $argon2id$v=19$m=65536,t=3,p=4$48VbogHIZ2FuFnQes1DqjQ$D3O13BUrEcMqRycV9TM6XpNrY3LkBOSY1ticdG35Oxk # yamllint disable-line rule:line-length
+    email: eduardocy92@gmail.com
+    groups:
+      - admins
+      - dev
+
+  # user2:
+  #   displayname: user2
+  #   password: # yamllint disable-line rule:line-length
+  #   email:
+  #   groups:
+  #     -dev
+...

@@ -1,0 +1,81 @@
+---
+#entryPoints:
+#  http:
+#    address: ":80"
+#    http:
+#      redirections:
+#        entryPoint:
+#          to: https
+#          scheme: https
+#  https:
+#    address: ":443"
+#    tls: {}
+
+http:
+  
+  middlewares:
+    authelia:
+      forwardAuth:
+        address: "https://authelia:9091/api/verify?rd=https%3A%2F%2Fauth.solutioneer.app%2F"
+        trustForwardHeader: true
+    
+    https-redirect:
+      #https-redirectscheme:
+      redirectScheme:
+        scheme: "https"
+    default-headers:
+      headers:
+        frameDeny: true
+        sslRedirect: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+ 
+  routers:
+    dashboard-auth:
+      entryPoints:
+        - "https"
+      rule: "Host(`auth.solutioneer.app`)"
+      service: api@internal
+      middlewares:
+        - authelia
+      tls:
+        certResolver: "letsencrypt"
+    dashboard-local:
+      rule: "Host(`192.168.68.103`)"
+      service: api@internal
+      entryPoints:
+        - "https"
+      middlewares:
+        - default-headers
+      tls:
+        certResolver: "letsencrypt"
+
+certificatesResolvers:
+  letsencrypt:
+    acme: 
+      email: "eduardocy92@gmail.com"
+      storage: "/config/acme.json"
+      httpChallenge:
+        entryPoint: "http"
+
+api:
+  dashboard: true
+  debug: true
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+
+  file:
+    filename: "config/traefik.yml"  
+
+...
+    
