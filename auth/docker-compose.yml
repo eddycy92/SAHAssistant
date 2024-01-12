@@ -71,8 +71,6 @@ services:
     command:
       - '--log.level=DEBUG'
       - '--log.filepath=/config/traefik.log'
-      - '--providers.docker=true'
-      - '--providers.docker.exposedByDefault=false'
 
   mysql:
     image: mysql:latest

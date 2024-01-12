@@ -1,18 +1,20 @@
 ---
-#entryPoints:
-#  http:
-#    address: ":80"
-#    http:
-#      redirections:
-#        entryPoint:
-#          to: https
-#          scheme: https
-#  https:
-#    address: ":443"
+entryPoints:
+  http:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: https
+          scheme: https
+  https:
+    address: ":443"
 #    tls: {}
 
-http:
-  
+serversTransport: 
+  insecureSkipVerify: true #> SECURITY: For testing only. False for production.
+
+http:  
   middlewares:
     authelia:
       forwardAuth:
@@ -38,21 +40,23 @@ http:
           X-Forwarded-Proto: https
  
   routers:
-    dashboard-auth:
+    authelia:
       entryPoints:
         - "https"
       rule: "Host(`auth.solutioneer.app`)"
       service: api@internal
       middlewares:
         - authelia
+        - default-headers
       tls:
         certResolver: "letsencrypt"
-    dashboard-local:
-      rule: "Host(`192.168.68.103`)"
-      service: api@internal
+    authelia-local:
       entryPoints:
         - "https"
+      rule: "Host(`192.168.68.103`)"
+      service: api@internal
       middlewares:
+        - autheli
         - default-headers
       tls:
         certResolver: "letsencrypt"
@@ -73,9 +77,11 @@ providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
-
   file:
     filename: "config/traefik.yml"  
 
+accessLog:
+  filePath: "config/access.log"
+  format: json
 ...
     
