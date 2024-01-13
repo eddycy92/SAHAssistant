@@ -1,106 +1,11 @@
-time="2024-01-12T15:05:30-05:00" level=info msg="Traefik version 2.10.7 built on 2023-12-06T15:54:59Z"
-time="2024-01-12T15:05:30-05:00" level=debug msg="Static configuration loaded {\"global\":{\"checkNewVersion\":true},\"serversTransport\":{\"maxIdleConnsPerHost\":200},\"entryPoints\":{\"http\":{\"address\":\":80\",\"transport\":{\"lifeCycle\":{\"graceTimeOut\":\"10s\"},\"respondingTimeouts\":{\"idleTimeout\":\"3m0s\"}},\"forwardedHeaders\":{},\"http\":{},\"http2\":{\"maxConcurrentStreams\":250},\"udp\":{\"timeout\":\"3s\"}}},\"providers\":{\"providersThrottleDuration\":\"2s\",\"docker\":{\"watch\":true,\"endpoint\":\"unix:///var/run/docker.sock\",\"defaultRule\":\"Host(`{{ normalize .Name }}`)\",\"swarmModeRefreshSeconds\":\"15s\"}},\"log\":{\"level\":\"DEBUG\",\"filePath\":\"/config/traefik.log\",\"format\":\"common\"}}"
-time="2024-01-12T15:05:30-05:00" level=info msg="\nStats collection is disabled.\nHelp us improve Traefik by turning this feature on :)\nMore details on: https://doc.traefik.io/traefik/contributing/data-collection/\n"
-time="2024-01-12T15:05:30-05:00" level=info msg="Starting provider aggregator aggregator.ProviderAggregator"
-time="2024-01-12T15:05:30-05:00" level=debug msg="Starting TCP Server" entryPointName=http
-time="2024-01-12T15:05:30-05:00" level=info msg="Starting provider *docker.Provider"
-time="2024-01-12T15:05:30-05:00" level=debug msg="*docker.Provider provider configuration: {\"watch\":true,\"endpoint\":\"unix:///var/run/docker.sock\",\"defaultRule\":\"Host(`{{ normalize .Name }}`)\",\"swarmModeRefreshSeconds\":\"15s\"}"
-time="2024-01-12T15:05:30-05:00" level=info msg="Starting provider *acme.ChallengeTLSALPN"
-time="2024-01-12T15:05:30-05:00" level=debug msg="*acme.ChallengeTLSALPN provider configuration: {}"
-time="2024-01-12T15:05:30-05:00" level=info msg="Starting provider *traefik.Provider"
-time="2024-01-12T15:05:30-05:00" level=debug msg="*traefik.Provider provider configuration: {}"
-time="2024-01-12T15:05:30-05:00" level=debug msg="Configuration received: {\"http\":{\"services\":{\"noop\":{}},\"serversTransports\":{\"default\":{\"maxIdleConnsPerHost\":200}}},\"tcp\":{},\"udp\":{},\"tls\":{}}" providerName=internal
-time="2024-01-12T15:05:30-05:00" level=debug msg="Provider connection established with docker 24.0.5 (API 1.43)" providerName=docker
-time="2024-01-12T15:05:30-05:00" level=error msg="invalid element: traefik.http.routers.authelia.tls." container=authelia-auth-e101ebc69cddadd5a0df934b75709fb611b861a1e250330b95cd05fe1962b56f providerName=docker
-time="2024-01-12T15:05:30-05:00" level=debug msg="Filtering disabled container" providerName=docker container=mysql-auth-b13d4fe99699b36293aec7c64de055c20e5b26e219bea3f39b6a84d14e1861f7
-time="2024-01-12T15:05:30-05:00" level=debug msg="Filtering disabled container" providerName=docker container=redis-auth-352fe1df554825d7ba38cbff277a709d445b2bfe4524fa0d6ffa3b7ee833bfab
-time="2024-01-12T15:05:30-05:00" level=debug msg="Configuration received: {\"http\":{\"routers\":{\"api\":{\"entryPoints\":[\"https\"],\"service\":\"traefik-auth\",\"rule\":\"Host(`traefik-auth`)\"}},\"services\":{\"traefik-auth\":{\"loadBalancer\":{\"servers\":[{\"url\":\"http://172.19.0.5:80\"}],\"passHostHeader\":true}}}},\"tcp\":{},\"udp\":{}}" providerName=docker
-time="2024-01-12T15:05:30-05:00" level=debug msg="No default certificate, fallback to the internal generated certificate" tlsStoreName=default
-time="2024-01-12T15:05:30-05:00" level=debug msg="No default certificate, fallback to the internal generated certificate" tlsStoreName=default
-time="2024-01-12T15:05:30-05:00" level=error msg="entryPoint \"https\" doesn't exist" routerName=api@docker entryPointName=https
-time="2024-01-12T15:05:30-05:00" level=error msg="no valid entryPoint for this router" routerName=api@docker
-time="2024-01-12T18:51:41-05:00" level=info msg="I have to go..."
-time="2024-01-12T18:51:41-05:00" level=info msg="Stopping server gracefully"
-time="2024-01-12T18:51:41-05:00" level=debug msg="Waiting 10s seconds before killing connections." entryPointName=http
-time="2024-01-12T18:51:41-05:00" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=http
-time="2024-01-12T18:51:41-05:00" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=http
-time="2024-01-12T18:51:41-05:00" level=debug msg="Entry point http closed" entryPointName=http
-time="2024-01-12T18:51:41-05:00" level=info msg="Server stopped"
-time="2024-01-12T18:51:41-05:00" level=info msg="Shutting down"
-time="2024-01-12T18:52:21-05:00" level=info msg="Traefik version 2.10.7 built on 2023-12-06T15:54:59Z"
-time="2024-01-12T18:52:21-05:00" level=debug msg="Static configuration loaded {\"global\":{\"checkNewVersion\":true},\"serversTransport\":{\"maxIdleConnsPerHost\":200},\"entryPoints\":{\"http\":{\"address\":\":80\",\"transport\":{\"lifeCycle\":{\"graceTimeOut\":\"10s\"},\"respondingTimeouts\":{\"idleTimeout\":\"3m0s\"}},\"forwardedHeaders\":{},\"http\":{},\"http2\":{\"maxConcurrentStreams\":250},\"udp\":{\"timeout\":\"3s\"}}},\"providers\":{\"providersThrottleDuration\":\"2s\"},\"log\":{\"level\":\"DEBUG\",\"filePath\":\"/config/traefik.log\",\"format\":\"common\"}}"
-time="2024-01-12T18:52:21-05:00" level=info msg="\nStats collection is disabled.\nHelp us improve Traefik by turning this feature on :)\nMore details on: https://doc.traefik.io/traefik/contributing/data-collection/\n"
-time="2024-01-12T18:52:21-05:00" level=info msg="Starting provider aggregator aggregator.ProviderAggregator"
-time="2024-01-12T18:52:21-05:00" level=debug msg="Starting TCP Server" entryPointName=http
-time="2024-01-12T18:52:21-05:00" level=info msg="Starting provider *traefik.Provider"
-time="2024-01-12T18:52:21-05:00" level=debug msg="*traefik.Provider provider configuration: {}"
-time="2024-01-12T18:52:21-05:00" level=info msg="Starting provider *acme.ChallengeTLSALPN"
-time="2024-01-12T18:52:21-05:00" level=debug msg="*acme.ChallengeTLSALPN provider configuration: {}"
-time="2024-01-12T18:52:21-05:00" level=debug msg="Configuration received: {\"http\":{\"services\":{\"noop\":{}},\"serversTransports\":{\"default\":{\"maxIdleConnsPerHost\":200}}},\"tcp\":{},\"udp\":{},\"tls\":{}}" providerName=internal
-time="2024-01-12T18:52:21-05:00" level=debug msg="No default certificate, fallback to the internal generated certificate" tlsStoreName=default
-time="2024-01-12T19:36:50-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T19:37:50-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T19:58:28-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T19:58:50-05:00" level=debug msg="http: TLS handshake error from 184.105.247.196:65354: tls: client offered only unsupported versions: []"
-time="2024-01-12T19:58:59-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T19:58:59-05:00" level=debug msg="http: TLS handshake error from 184.105.247.196:23358: tls: no cipher suite supported by both client and server"
-time="2024-01-12T19:59:48-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T19:59:59-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T20:00:04-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T20:00:19-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T20:00:24-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T20:00:38-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:45:29-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:47:16-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:47:17-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:47:17-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:36662: tls: client offered only unsupported versions: [302]"
-time="2024-01-12T21:47:44-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:48:04-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:48:06-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:48:10-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-12T21:48:12-05:00" level=debug msg="Serving default certificate for request: \"pool-96-255-237-215.washdc.fios.verizon.net\""
-time="2024-01-12T21:48:13-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:45386: EOF"
-time="2024-01-12T21:48:14-05:00" level=debug msg="Serving default certificate for request: \"pool-96-255-237-215.washdc.fios.verizon.net\""
-time="2024-01-12T21:48:15-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:45402: EOF"
-time="2024-01-12T21:48:16-05:00" level=debug msg="Serving default certificate for request: \"pool-96-255-237-215.washdc.fios.verizon.net\""
-time="2024-01-12T21:48:16-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:45412: tls: no cipher suite supported by both client and server"
-time="2024-01-12T21:48:17-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:45416: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])"
-time="2024-01-12T21:48:17-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:45428: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])"
-time="2024-01-12T21:48:18-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:42318: tls: client offered only unsupported versions: [302 301]"
-time="2024-01-12T21:48:20-05:00" level=debug msg="Serving default certificate for request: \"pool-96-255-237-215.washdc.fios.verizon.net\""
-time="2024-01-12T21:48:20-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:42324: read tcp 172.19.0.5:80->165.154.138.123:42324: read: connection reset by peer"
-time="2024-01-12T21:48:21-05:00" level=debug msg="Serving default certificate for request: \"pool-96-255-237-215.washdc.fios.verizon.net\""
-time="2024-01-12T21:48:23-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:42330: EOF"
-time="2024-01-12T21:48:23-05:00" level=debug msg="Serving default certificate for request: \"pool-96-255-237-215.washdc.fios.verizon.net\""
-time="2024-01-12T21:48:24-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:42346: EOF"
-time="2024-01-12T21:48:26-05:00" level=debug msg="Serving default certificate for request: \"pool-96-255-237-215.washdc.fios.verizon.net\""
-time="2024-01-12T21:48:26-05:00" level=debug msg="http: TLS handshake error from 165.154.138.123:42352: read tcp 172.19.0.5:80->165.154.138.123:42352: read: connection reset by peer"
-time="2024-01-13T00:22:06-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-13T00:22:06-05:00" level=debug msg="http: TLS handshake error from 172.104.11.51:49404: read tcp 172.19.0.5:80->172.104.11.51:49404: read: connection reset by peer"
-time="2024-01-13T00:39:10-05:00" level=debug msg="Serving default certificate for request: \"96.255.237.215\""
-time="2024-01-13T00:39:10-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:49288: EOF"
-time="2024-01-13T00:39:10-05:00" level=debug msg="Serving default certificate for request: \"96.255.237.215\""
-time="2024-01-13T00:39:10-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:53412: EOF"
-time="2024-01-13T00:39:11-05:00" level=debug msg="Serving default certificate for request: \"96.255.237.215\""
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:57632: tls: no cipher suite supported by both client and server"
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:62092: tls: client requested unsupported application protocols ([http/0.9 http/1.0 spdy/1 spdy/2 spdy/3 h2c hq])"
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:5028: tls: client requested unsupported application protocols ([hq h2c spdy/3 spdy/2 spdy/1 http/1.0 http/0.9])"
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:9148: tls: client offered only unsupported versions: [302 301]"
-time="2024-01-13T00:39:11-05:00" level=debug msg="Serving default certificate for request: \"96.255.237.215\""
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:13314: read tcp 172.19.0.5:80->212.102.40.218:13314: read: connection reset by peer"
-time="2024-01-13T00:39:11-05:00" level=debug msg="Serving default certificate for request: \"96.255.237.215\""
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:17450: EOF"
-time="2024-01-13T00:39:11-05:00" level=debug msg="Serving default certificate for request: \"96.255.237.215\""
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:21806: EOF"
-time="2024-01-13T00:39:11-05:00" level=debug msg="Serving default certificate for request: \"96.255.237.215\""
-time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:25564: read tcp 172.19.0.5:80->212.102.40.218:25564: read: connection reset by peer"
-time="2024-01-13T08:18:45-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-13T11:08:28-05:00" level=debug msg="Serving default certificate for request: \"\""
-time="2024-01-13T14:08:17-05:00" level=info msg="I have to go..."
-time="2024-01-13T14:08:17-05:00" level=info msg="Stopping server gracefully"
-time="2024-01-13T14:08:17-05:00" level=debug msg="Waiting 10s seconds before killing connections." entryPointName=http
-time="2024-01-13T14:08:17-05:00" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=http
-time="2024-01-13T14:08:17-05:00" level=error msg="Error while starting server: accept tcp [::]:80: use of closed network connection" entryPointName=http
-time="2024-01-13T14:08:17-05:00" level=debug msg="Entry point http closed" entryPointName=http
-time="2024-01-13T14:08:17-05:00" level=info msg="Server stopped"
-time="2024-01-13T14:08:17-05:00" level=info msg="Shutting down"
+time="2024-01-13T14:28:59-05:00" level=info msg="Traefik version 2.10.7 built on 2023-12-06T15:54:59Z"
+time="2024-01-13T14:28:59-05:00" level=debug msg="Static configuration loaded {\"global\":{\"checkNewVersion\":true},\"serversTransport\":{\"maxIdleConnsPerHost\":200},\"entryPoints\":{\"http\":{\"address\":\":80\",\"transport\":{\"lifeCycle\":{\"graceTimeOut\":\"10s\"},\"respondingTimeouts\":{\"idleTimeout\":\"3m0s\"}},\"forwardedHeaders\":{},\"http\":{},\"http2\":{\"maxConcurrentStreams\":250},\"udp\":{\"timeout\":\"3s\"}}},\"providers\":{\"providersThrottleDuration\":\"2s\"},\"log\":{\"level\":\"DEBUG\",\"filePath\":\"/config/traefik.log\",\"format\":\"common\"}}"
+time="2024-01-13T14:28:59-05:00" level=info msg="\nStats collection is disabled.\nHelp us improve Traefik by turning this feature on :)\nMore details on: https://doc.traefik.io/traefik/contributing/data-collection/\n"
+time="2024-01-13T14:28:59-05:00" level=info msg="Starting provider aggregator aggregator.ProviderAggregator"
+time="2024-01-13T14:28:59-05:00" level=debug msg="Starting TCP Server" entryPointName=http
+time="2024-01-13T14:28:59-05:00" level=info msg="Starting provider *traefik.Provider"
+time="2024-01-13T14:28:59-05:00" level=debug msg="*traefik.Provider provider configuration: {}"
+time="2024-01-13T14:28:59-05:00" level=info msg="Starting provider *acme.ChallengeTLSALPN"
+time="2024-01-13T14:28:59-05:00" level=debug msg="*acme.ChallengeTLSALPN provider configuration: {}"
+time="2024-01-13T14:28:59-05:00" level=debug msg="Configuration received: {\"http\":{\"services\":{\"noop\":{}},\"serversTransports\":{\"default\":{\"maxIdleConnsPerHost\":200}}},\"tcp\":{},\"udp\":{},\"tls\":{}}" providerName=internal
+time="2024-01-13T14:28:59-05:00" level=debug msg="No default certificate, fallback to the internal generated certificate" tlsStoreName=default
