@@ -1,6 +1,6 @@
-# Memory of Working Repositories
+#! Memory of Working Repositories
 
-# main project:
+main_project_repository: "https://github.com/eddycy92/SAHAssistant/tree/main/auth"
 
-
-# Additional repositories for information:
+# additional_repositories_for_information:
+#     - ""
