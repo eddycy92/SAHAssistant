@@ -20,6 +20,11 @@ http:
       forwardAuth:
         address: "https://authelia:9091/api/verify?rd=https%3A%2F%2Fauth.solutioneer.app%2F"
         trustForwardHeader: true
+        authResponseHeaders:
+          - "Remote-User"
+          - "Remote-Groups"
+          - "Remote-Email"
+          - "Remote-Name"
     
     https-redirect:
       #https-redirectscheme:
@@ -40,23 +45,38 @@ http:
           X-Forwarded-Proto: https
  
   routers:
+    traefik:
+      rule: "Host(`traefik.solutioneer.app`)"
+      entryPoints:
+        - "https"
+      service: api@internal
+      middlewares:
+        - default-headers
+        - authelia@file
+      tls:
+      options: modern@file
+      certResolver: letsencrypt
+      domains:
+        - main: "solutioneer.app"
+          sans:
+            - "*.solutioneer.app"    
     authelia:
       entryPoints:
         - "https"
       rule: "Host(`auth.solutioneer.app`)"
       service: api@internal
       middlewares:
-        - authelia
+        - authelia@file
         - default-headers
       tls:
         certResolver: "letsencrypt"
-    authelia-local:
+    traefik-local:
       entryPoints:
         - "https"
-      rule: "Host(`192.168.68.103`)"
+      rule: "Host(`192.168.68.103:8080`)"
       service: api@internal
       middlewares:
-        - autheli
+        - autheli@file
         - default-headers
       tls:
         certResolver: "letsencrypt"
@@ -84,4 +104,3 @@ accessLog:
   filePath: "config/access.log"
   format: json
 ...
-    
