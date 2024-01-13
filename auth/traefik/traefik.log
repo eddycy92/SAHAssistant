@@ -96,3 +96,11 @@ time="2024-01-13T00:39:11-05:00" level=debug msg="Serving default certificate fo
 time="2024-01-13T00:39:11-05:00" level=debug msg="http: TLS handshake error from 212.102.40.218:25564: read tcp 172.19.0.5:80->212.102.40.218:25564: read: connection reset by peer"
 time="2024-01-13T08:18:45-05:00" level=debug msg="Serving default certificate for request: \"\""
 time="2024-01-13T11:08:28-05:00" level=debug msg="Serving default certificate for request: \"\""
+time="2024-01-13T14:08:17-05:00" level=info msg="I have to go..."
+time="2024-01-13T14:08:17-05:00" level=info msg="Stopping server gracefully"
+time="2024-01-13T14:08:17-05:00" level=debug msg="Waiting 10s seconds before killing connections." entryPointName=http
+time="2024-01-13T14:08:17-05:00" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=http
+time="2024-01-13T14:08:17-05:00" level=error msg="Error while starting server: accept tcp [::]:80: use of closed network connection" entryPointName=http
+time="2024-01-13T14:08:17-05:00" level=debug msg="Entry point http closed" entryPointName=http
+time="2024-01-13T14:08:17-05:00" level=info msg="Server stopped"
+time="2024-01-13T14:08:17-05:00" level=info msg="Shutting down"
