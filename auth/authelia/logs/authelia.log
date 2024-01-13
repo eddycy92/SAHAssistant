@@ -1,4 +1,4 @@
-{"level":"info","msg":"Storage schema is being checked for updates","time":"2024-01-13T14:28:59-05:00"}
-{"level":"info","msg":"Storage schema is already up to date","time":"2024-01-13T14:28:59-05:00"}
-{"level":"debug","msg":"The NTP startup check was skipped due to there being no configured 2FA access control rules","time":"2024-01-13T14:28:59-05:00"}
-{"level":"info","msg":"Initializing server for non-TLS connections on '[::]:9091' path '/'","time":"2024-01-13T14:28:59-05:00"}
+{"level":"info","msg":"Storage schema is being checked for updates","time":"2024-01-13T14:37:07-05:00"}
+{"level":"info","msg":"Storage schema is already up to date","time":"2024-01-13T14:37:07-05:00"}
+{"level":"debug","msg":"The NTP startup check was skipped due to there being no configured 2FA access control rules","time":"2024-01-13T14:37:07-05:00"}
+{"level":"info","msg":"Initializing server for non-TLS connections on '[::]:9091' path '/'","time":"2024-01-13T14:37:07-05:00"}

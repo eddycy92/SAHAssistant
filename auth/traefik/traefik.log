@@ -1,11 +1,12 @@
-time="2024-01-13T14:28:59-05:00" level=info msg="Traefik version 2.10.7 built on 2023-12-06T15:54:59Z"
-time="2024-01-13T14:28:59-05:00" level=debug msg="Static configuration loaded {\"global\":{\"checkNewVersion\":true},\"serversTransport\":{\"maxIdleConnsPerHost\":200},\"entryPoints\":{\"http\":{\"address\":\":80\",\"transport\":{\"lifeCycle\":{\"graceTimeOut\":\"10s\"},\"respondingTimeouts\":{\"idleTimeout\":\"3m0s\"}},\"forwardedHeaders\":{},\"http\":{},\"http2\":{\"maxConcurrentStreams\":250},\"udp\":{\"timeout\":\"3s\"}}},\"providers\":{\"providersThrottleDuration\":\"2s\"},\"log\":{\"level\":\"DEBUG\",\"filePath\":\"/config/traefik.log\",\"format\":\"common\"}}"
-time="2024-01-13T14:28:59-05:00" level=info msg="\nStats collection is disabled.\nHelp us improve Traefik by turning this feature on :)\nMore details on: https://doc.traefik.io/traefik/contributing/data-collection/\n"
-time="2024-01-13T14:28:59-05:00" level=info msg="Starting provider aggregator aggregator.ProviderAggregator"
-time="2024-01-13T14:28:59-05:00" level=debug msg="Starting TCP Server" entryPointName=http
-time="2024-01-13T14:28:59-05:00" level=info msg="Starting provider *traefik.Provider"
-time="2024-01-13T14:28:59-05:00" level=debug msg="*traefik.Provider provider configuration: {}"
-time="2024-01-13T14:28:59-05:00" level=info msg="Starting provider *acme.ChallengeTLSALPN"
-time="2024-01-13T14:28:59-05:00" level=debug msg="*acme.ChallengeTLSALPN provider configuration: {}"
-time="2024-01-13T14:28:59-05:00" level=debug msg="Configuration received: {\"http\":{\"services\":{\"noop\":{}},\"serversTransports\":{\"default\":{\"maxIdleConnsPerHost\":200}}},\"tcp\":{},\"udp\":{},\"tls\":{}}" providerName=internal
-time="2024-01-13T14:28:59-05:00" level=debug msg="No default certificate, fallback to the internal generated certificate" tlsStoreName=default
+
+time="2024-01-13T14:37:06-05:00" level=info msg="Traefik version 2.10.7 built on 2023-12-06T15:54:59Z"
+time="2024-01-13T14:37:06-05:00" level=debug msg="Static configuration loaded {\"global\":{\"checkNewVersion\":true},\"serversTransport\":{\"maxIdleConnsPerHost\":200},\"entryPoints\":{\"http\":{\"address\":\":80\",\"transport\":{\"lifeCycle\":{\"graceTimeOut\":\"10s\"},\"respondingTimeouts\":{\"idleTimeout\":\"3m0s\"}},\"forwardedHeaders\":{},\"http\":{},\"http2\":{\"maxConcurrentStreams\":250},\"udp\":{\"timeout\":\"3s\"}}},\"providers\":{\"providersThrottleDuration\":\"2s\"},\"log\":{\"level\":\"DEBUG\",\"filePath\":\"/config/traefik.log\",\"format\":\"common\"}}"
+time="2024-01-13T14:37:06-05:00" level=info msg="\nStats collection is disabled.\nHelp us improve Traefik by turning this feature on :)\nMore details on: https://doc.traefik.io/traefik/contributing/data-collection/\n"
+time="2024-01-13T14:37:06-05:00" level=info msg="Starting provider aggregator aggregator.ProviderAggregator"
+time="2024-01-13T14:37:06-05:00" level=debug msg="Starting TCP Server" entryPointName=http
+time="2024-01-13T14:37:06-05:00" level=info msg="Starting provider *traefik.Provider"
+time="2024-01-13T14:37:06-05:00" level=info msg="Starting provider *acme.ChallengeTLSALPN"
+time="2024-01-13T14:37:06-05:00" level=debug msg="*acme.ChallengeTLSALPN provider configuration: {}"
+time="2024-01-13T14:37:06-05:00" level=debug msg="*traefik.Provider provider configuration: {}"
+time="2024-01-13T14:37:06-05:00" level=debug msg="Configuration received: {\"http\":{\"services\":{\"noop\":{}},\"serversTransports\":{\"default\":{\"maxIdleConnsPerHost\":200}}},\"tcp\":{},\"udp\":{},\"tls\":{}}" providerName=internal
+time="2024-01-13T14:37:06-05:00" level=debug msg="No default certificate, fallback to the internal generated certificate" tlsStoreName=default
