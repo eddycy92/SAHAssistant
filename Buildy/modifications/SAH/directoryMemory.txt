@@ -1,0 +1,1 @@
+# Here is where the structure of the directory and its files is stored

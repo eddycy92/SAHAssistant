@@ -97,6 +97,7 @@ providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
+  
   file:
     filename: "config/traefik.yml"  
 
